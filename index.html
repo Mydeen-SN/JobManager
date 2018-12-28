@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Essential JS 2 Sidebar</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Typescript UI Controls">
+    <meta name="author" content="Syncfusion">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.syncfusion.com/ej2/material.css" rel="stylesheet">
+    <link href='index.css' rel="stylesheet">
+    <script src="https://cdn.syncfusion.com/ej2/dist/ej2.min.js" type="text/javascript"></script>
+</head>
+<style type="text/css" class="cssStyles">
+
+@font-face {
+font-family: 'e-grid-headertemplate';
+src:
+url(data:application/x-font-ttf;charset=utf-8;base64,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) format('truetype');
+font-weight: normal;
+font-style: normal;
+}
+    html,
+    body {
+        height: 100% !important;
+    }
+    .chartview {
+    position: absolute;
+    top: 67px!important;
+    float: right;
+    right: 239px;
+}
+    .detailtable td {
+        font-size: 13px;
+        margin-left: 50px;
+        padding: 4px;
+        max-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+   .e-grid .e-icon-calender::before{
+        font-family: 'e-grid-headertemplate';
+        width:15px !important;
+        content:'\e7b5';
+    }
+    .e-grid .e-header {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 30px;
+    }
+    td.e-rowcell .statustxt.e-activecolor {
+        color: #00cc00;
+        position: relative;
+    }
+
+    td.e-rowcell .statustxt.e-inactivecolor {
+        color: #e60000;
+        position: relative;
+    }
+
+    td.e-rowcell .statustxt.e-validatecolor {
+        color: #633974;
+        position: relative;
+    }
+
+    td.e-rowcell .statustxt.e-inprogresscolor {
+        color: #3232ff;
+        position: relative;
+    }
+
+    .statustemp.e-inactivecolor {
+        background-color: #ffd7cc;
+        width: 60px;
+        left: 30px
+    }
+
+    .statustemp.e-validatecolor {
+        background-color: #D7BDE2;
+        width: 68px;
+        left: 32px
+    }
+
+    .statustemp.e-inprogresscolor {
+        background-color: #ccccff;
+        width: 74px;
+        left: 26px
+    }
+
+    .statustemp.e-activecolor {
+        background-color: #ccffcc;
+        width: 57px;
+        left: 30px;
+    }
+
+    .statustxt.e-activecolor {
+        color: #00cc00;
+    }
+
+    .statustxt.e-validatecolor {
+        color: #C39BD3;
+    }
+
+    .statustxt.e-activecolor {
+        color: #00cc00;
+    }
+
+    .statustxt.e-inactivecolor {
+        color: #e60000;
+    }
+
+    .statustxt.e-inpogresscolor {
+        color: #3232ff;
+    }
+
+    .statustemp {
+        position: relative;
+        height: 20px;
+        border-radius: 5px;
+        text-align: center
+    }
+
+    label.required::before {
+            content: '*';
+            color: red;
+        }
+
+        .e-add:before {
+            content: '\e7d5';
+        }
+
+        td {
+            padding-right: 20px;
+            padding-bottom: 20px;
+        }
+
+        @keyframes swal2-animate-success-line-tip {
+            0% {
+                top: 1.1875em;
+                left: .0625em;
+                width: 0
+            }
+
+            54% {
+                top: 1.0625em;
+                left: .125em;
+                width: 0
+            }
+
+            70% {
+                top: 2.1875em;
+                left: -.375em;
+                width: 3.125em
+            }
+
+            84% {
+                top: 3em;
+                left: 1.3125em;
+                width: 1.0625em
+            }
+
+            100% {
+                top: 2.8125em;
+                left: .875em;
+                width: 1.5625em
+            }
+        }
+
+        @keyframes swal2-animate-success-line-long {
+            0% {
+                top: 3.375em;
+                right: 2.875em;
+                width: 0
+            }
+
+            65% {
+                top: 3.375em;
+                right: 2.875em;
+                width: 0
+            }
+
+            84% {
+                top: 2.1875em;
+                right: 0;
+                width: 3.4375em
+            }
+
+            100% {
+                top: 2.375em;
+                right: .5em;
+                width: 2.9375em
+            }
+        }
+
+        .swal2-icon {
+            position: relative;
+            justify-content: center;
+            width: 5em;
+            height: 5em;
+            margin: 1.25em auto 1.875em;
+            border: .25em solid transparent;
+            border-radius: 50%;
+            line-height: 5em;
+            cursor: default;
+            box-sizing: content-box;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            zoom: normal
+        }
+
+        .swal2-icon.swal2-success .swal2-success-ring {
+            position: absolute;
+            top: -.25em;
+            left: -.25em;
+            width: 100%;
+            height: 100%;
+            border: .25em solid green;
+            border-radius: 50%;
+            z-index: 2;
+            box-sizing: content-box
+        }
+
+        .swal2-icon.swal2-success [class^=swal2-success-line] {
+            display: block;
+            position: absolute;
+            height: .3125em;
+            border-radius: .125em;
+            background-color: green;
+            z-index: 2
+        }
+
+        .swal2-icon.swal2-success [class^=swal2-success-line][class$=tip] {
+            top: 2.875em;
+            left: .875em;
+            width: 1.5625em;
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg)
+        }
+
+        .swal2-icon.swal2-success [class^=swal2-success-line][class$=long] {
+            top: 2.375em;
+            right: .5em;
+            width: 2.9375em;
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg)
+        }
+
+        .swal2-animate-success-icon .swal2-success-line-tip {
+            -webkit-animation: swal2-animate-success-line-tip .75s;
+            animation: swal2-animate-success-line-tip .75s
+        }
+
+        .swal2-animate-success-icon .swal2-success-line-long {
+            -webkit-animation: swal2-animate-success-line-long .75s;
+            animation: swal2-animate-success-line-long .75s
+        }
+</style>
+<script id="daystemplate" type="text/x-template">
+    <span class="e-icon-calender e-icons headericon"></span>
+    Duration
+</script>
+<script id="titletemplate" type="text/x-template">
+    <span class="e-header"></span>
+    Title
+</script>
+<script id="controltemplate" type="text/x-template">
+    <span class="e-header"></span>
+    Control Name
+</script>
+<script id="statusheadertemplate" type="text/x-template">
+    <span class="e-header"></span>
+    Status
+</script>
+<script id="prioritytemplate" type="text/x-template">
+    <span class="e-header"></span>
+    Priority
+</script>
+<script id="commandtemplate" type="text/x-template">
+    <span class="e-header"></span>
+     Manage Records
+</script>
+<script id='dialogtemplate' type="text/x-template">
+    <div>
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <input name="reportTeamPriority" id="reportTeamPriority" value="${reportTeamPriority}" />
+            </div>
+            </div>
+            <div class="form-row">
+            <div class="form-group col-md-12">
+                <input name="dueDate" id="dueDate" > 
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <input name="status" id="status" > 
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/x-jsrender" id="statusTemplate">
+    <div id="status" class="statustemp">
+        <span class="statustxt">${status}</span>
+    </div>
+</script>
+<script id='detailtemplate' type="text/x-jsrender">
+    <table class="detailtable" width="100%" >
+        <colgroup>
+            <col width="100%">
+        </colgroup>
+        <tbody>
+            <tr>
+                <td>
+                    <span style="font-weight: 500; margin-left: 50px">Title: </span> ${title}
+                </td>
+            </tr>
+             <tr>
+                <td>
+                    <span style="font-weight: 500; margin-left: 50px">Description: </span> ${description}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</script>
+
+<body class=''>
+    <div class='overlay'>
+        <nav class="left-pane navbar-default navbar-static-side sidebar">
+            <div class="user-id"><div class="user">Guest</div>
+                <div class="e-avatar e-avatar-xsmall e-avatar-circle" title="Guest">
+                    <div class="e-people"></div>
+                </div>
+            </div>
+            <div id="left-listview" tabindex="1">
+                <ul>
+                    <li>All Teams</li>
+                    <li>Core</li>
+                    <li>Grid</li>                    
+                    <li>Chart</li>
+                </ul>
+            </div>
+        </nav>
+        <div id='rightpane' class="right-pane">
+            <nav id="right-nav-header" class="navbar navbar-static-top white-bg">
+                <div class="caption">Job Manager</div>
+            </nav>
+            <div class='right-body'>
+                <div id="component"></div>
+                <input id="search" class="form-control" style="width: 200px;margin:15px;float: right" type="text" placeholder="Search" aria-label="Search" onkeypress="myFunction(this)">
+                <div class="e-card" style="padding:20px">
+                    <div id="Grid"></div>
+                </div>
+                <!-- <div class="content-wrapper">
+                   
+                </div> -->
+                <button id="roundbtn" class='add-button e-btn e-primary e-round'>
+                    <span class="e-icons e-add"></span>
+                </button>
+                <button id="chart" class='add-button e-btn e-primary e-round'>
+                    <span class="e-icons">
+                        <div style='height:50px;width:50px;background-image: url(pie_chart.png);background-size: 50px 50px;position:relative;top:-10px;left:-17px'></div>
+                    </span>
+                </button>
+                
+            </div>
+           
+        </div>
+    </div>
+
+    <div id="chartDialog" style="border-collapse: separate;border-spacing: 10px;width:100%;padding: 0px 20px 20px;display: none">
+        <div id="pie-container"></div>
+        </div>
+
+    <div id="promptDialog" style="border-collapse: separate;border-spacing: 10px;width:100%;padding: 0px 20px 20px;display: none">
+        <!-- Prompt Dialog content  -->
+        <form id="form-validator">
+            <table padding-right: 20px;>
+                <tr>
+                    <td>
+                        <span>
+                            Title
+                        </span>
+                        <label class="required"></label>
+                    </td>
+                    <td>
+                        <input id="title" name="title" class="e-input" style="width: 600px" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>
+                            Control
+                        </span>
+                    </td>
+                    <td>
+                        <div id="sync-Control">
+                            <select id="Controls">
+                                <option value="Grid">Grid</option>
+                                <option value="Chart">Chart</option>
+                                <option value="Core">Core</option>
+                                <option value="DropDownList">DropDownList</option>
+                            </select>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>
+                            Issue Type
+                        </span>
+                    </td>
+                    <td>
+                        <div id="issue-Type">
+                            <select id="issueType">
+                                <option value="Bug">Bug</option>
+                                <option value="Build Failure">Build Failure</option>
+                                <option value="Query">Query</option>
+                            </select>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>
+                            Priority
+                        </span>
+                    </td>
+                    <td>
+                        <div id="issue-Priority">
+                            <select id="Priority">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>
+                            Description
+                        </span>
+                        <label class="required description"></label>
+                    </td>
+                    <td>
+                        <textarea rows="4" id="Description" name="Description" class="form-control"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>
+                            Reporter
+                        </span>
+                        <label class="required"></label>
+                    </td>
+                    <td>
+                        <input id="Reporter" name="Reporter" class="e-input" style="width: 400px" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>
+                            Assignee
+                        </span>
+                        <label class="required"></label>
+                    </td>
+                    <td>
+                        <input id="Assignee" name="Assignee" class="e-input" style="width: 400px" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    
+    <div id="save-icon">
+        <div class="success-icon" style="display: flex;">
+            <div class="swal2-icon swal2-success swal2-animate-success-icon">
+                <span class="swal2-success-line-tip"></span>
+                <span class="swal2-success-line-long"></span>
+                <div class="swal2-success-ring"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="index.js" type="text/javascript"></script>
+
+</html>
